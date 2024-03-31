@@ -1,0 +1,21 @@
+{
+	"name": "slithic_devcontainer",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"mounts": [
+		"type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// TODO: sensible settings here
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
